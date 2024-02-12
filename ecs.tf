@@ -155,12 +155,11 @@ module "ecs" {
     }
   }
   depends_on = [ 
-    aws_service_discovery_private_dns_namespace.namespace_cluster
+    aws_service_discovery_http_namespace.namespace_cluster
    ]
 }
-resource "aws_service_discovery_private_dns_namespace" "namespace_cluster" {
+resource "aws_service_discovery_http_namespace" "namespace_cluster" {
     name = "test-namespace"
-    vpc = module.vpc.vpc_id
       depends_on = [ 
     module.vpc
    ]
